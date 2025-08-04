@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Medalpic from '../assets/Medalpic.jpg';
 import dancepic from '../assets/dancepic.jpg';

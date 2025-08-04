@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useState, useRef } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -18,7 +18,7 @@ const ExperienceBlock: React.FC<ExperienceBlockProps> = ({ title, description, i
   const handleMouseEnter = () => {
     if (images.length <= 1) return;
     intervalRef.current = window.setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
+  setCurrent((prev: number) => (prev + 1) % images.length);
     }, 900);
   };
 

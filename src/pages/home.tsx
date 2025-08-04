@@ -1,6 +1,6 @@
+import { useState } from 'react';
 
 
-import React, { useState } from 'react';
 import blazerPic from '../assets/newpic.jpg';
 
 function Home() {

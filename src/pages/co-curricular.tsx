@@ -1,6 +1,5 @@
 
 
-import React from 'react';
 import IEEECouncilPic from '../assets/IEEECouncilPic.jpg';
 import AIColegionPic from '../assets/AIColegionPic.jpg';
 import Guestspeakerpic from '../assets/Guestspeakerpic.jpg';
@@ -12,7 +11,6 @@ import { useNavigate } from 'react-router-dom';
 function CoCurricular() {
   // Handwritten font for heading (Google Fonts: 'Indie Flower' or similar)
   // If not available, fallback to a playful font
-  const headingFont = `'Poppins', sans-serif`;
 
   const navigate = useNavigate();
   return (

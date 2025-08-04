@@ -1,33 +1,211 @@
-
-
-
-
+import { useNavigate } from 'react-router-dom';
 
 function Experience() {
+  const navigate = useNavigate();
+  const timeline = [
+    {
+      left: {
+        title: 'AlgoFlow AI',
+        desc: 'AI Research and Development Intern',
+        media: null,
+        date: 'June 2025 to Present',
+      },
+      right: {
+        title: '',
+        desc: '',
+        media: null,
+        date: '',
+      },
+    },
+    {
+      left: {
+        title: '',
+        desc: '',
+        media: null,
+        date: '',
+      },
+      right: {
+        title: 'Mazagon Dock Shipbuilders Limited',
+        desc: 'Engineering Intern, EY Design Department',
+        media: null,
+        date: 'Dec 2024 to Jan 2025',
+      },
+    },
+    {
+      left: {
+        title: 'VESIT AI&DS Department',
+        desc: 'Research Intern - Intelligent Fault Detection',
+        media: null,
+        date: 'May 2024 to August 2024',
+      },
+      right: {
+        title: '',
+        desc: '',
+        media: null,
+        date: '',
+      },
+    },
+  ];
+
   return (
-    <div style={{ display: 'flex', alignItems: 'flex-start', minHeight: '80vh', padding: '2rem' }}>
-      {/* Left: Internship vertical flow */}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: '3rem' }}>
-        <div style={{ fontWeight: 500, marginBottom: '1rem' }}>Internship</div>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' }}>
-          <div style={{ width: 70, height: 70, borderRadius: '50%', background: '#e0e7ff', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 600, fontSize: '1.2rem', boxShadow: '0 2px 8px #0001', cursor: 'pointer', border: '2px solid #6366f1' }}>Algo</div>
-          <div style={{ width: 70, height: 70, borderRadius: '50%', background: '#e0e7ff', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 600, fontSize: '1.2rem', boxShadow: '0 2px 8px #0001', border: '2px solid #6366f1' }}>MDL</div>
-          <div style={{ width: 70, height: 70, borderRadius: '50%', background: '#e0e7ff', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 600, fontSize: '1.2rem', boxShadow: '0 2px 8px #0001', border: '2px solid #6366f1' }}>VESIT</div>
-        </div>
-        {/* Vertical line connecting circles */}
-        <div style={{ position: 'absolute', left: 34, top: 70, width: 2, height: 180, background: '#6366f1', zIndex: -1 }}></div>
+    <div style={{
+      minHeight: '100vh',
+      width: '100vw',
+      background: 'var(--color-bg)',
+      padding: '3rem 2rem',
+      boxSizing: 'border-box',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      fontFamily: 'Poppins, sans-serif',
+    }}>
+      {/* Top circle */}
+      <div style={{ position: 'relative', height: 80 }}>
+        <div style={{
+          position: 'absolute',
+          left: '50%',
+          top: 0,
+          transform: 'translateX(-50%)',
+          width: 64,
+          height: 64,
+          background: 'var(--color-primary)',
+          borderRadius: '50%',
+          boxShadow: '0 2px 16px #C6282822',
+          zIndex: 2
+        }} />
+        <div style={{
+          position: 'absolute',
+          left: '50%',
+          top: 64,
+          width: 4,
+          height: 16,
+          background: 'var(--color-primary)',
+          transform: 'translateX(-50%)',
+          zIndex: 1
+        }} />
       </div>
 
-      {/* Right: AlgoFlow details box */}
-      <div style={{ minWidth: 320, maxWidth: 500, background: '#fff', borderRadius: 12, boxShadow: '0 2px 16px #0002', padding: '2rem', position: 'relative' }}>
-        <h2 style={{ fontWeight: 700, fontSize: '2rem', marginBottom: '1.2rem', color: '#232323' }}>AlgoFlow</h2>
-        <div style={{ marginBottom: '1rem', color: '#444', fontSize: '1.1rem' }}>
-          {/* Placeholder for description lines */}
-          <div>Algorithmic internship focused on problem solving and project development.</div>
-          <div>Worked on real-world challenges and collaborative tasks.</div>
-        </div>
-        {/* Placeholder for a button or link */}
-        <button style={{ marginTop: '1.5rem', padding: '0.7rem 2rem', background: '#6366f1', color: '#fff', border: 'none', borderRadius: 6, fontWeight: 600, fontSize: '1rem', cursor: 'pointer' }}>View Details</button>
+      {/* Timeline container */}
+      <div style={{
+        position: 'relative',
+        width: '100%',
+        maxWidth: 900,
+        margin: '0 auto',
+        padding: '0 2vw'
+      }}>
+        {/* Central vertical line */}
+        <div style={{
+          position: 'absolute',
+          left: '50%',
+          top: 0,
+          bottom: 0,
+          width: 4,
+          background: 'var(--color-primary)',
+          transform: 'translateX(-50%)',
+          zIndex: 0,
+          borderRadius: 2
+        }} />
+
+        {/* Timeline entries */}
+        {timeline.map((item, idx) => (
+          <div key={idx} style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+            marginBottom: '24px', // reduced from 48px
+            position: 'relative',
+            zIndex: 1
+          }}>
+            {/* Left entry */}
+            {(item.left.title || item.left.desc) && (
+              <div style={{ width: '44%', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                <div style={{
+                  background: 'var(--color-primary)',
+                  color: 'var(--color-text)',
+                  fontWeight: 600,
+                  fontSize: '1rem',
+                  padding: '0.5rem 1.3rem',
+                  borderRadius: '1rem',
+                  marginBottom: '0.7rem',
+                  boxShadow: '0 2px 8px #C6282822',
+                  whiteSpace: 'nowrap',
+                  fontFamily: 'Poppins, sans-serif',
+                }}>
+                  {item.left.date}
+                </div>
+                <div
+                  className="card"
+                  style={{
+                    width: '100%',
+                    maxWidth: 420,
+                    borderRadius: 'var(--radius)',
+                    padding: '1.1rem 1.2rem',
+                    background: 'var(--color-card)',
+                    minHeight: 110,
+                    boxShadow: 'var(--shadow)',
+                    fontFamily: 'Poppins, sans-serif',
+                    boxSizing: 'border-box',
+                    transition: 'all 0.2s',
+                    cursor: item.left.title === 'AlgoFlow AI' ? 'pointer' : item.left.title === 'VESIT AI&DS Department' ? 'pointer' : 'default',
+                  }}
+                  onClick={() => {
+                    if (item.left.title === 'AlgoFlow AI') navigate('/algoflow-ai');
+                    if (item.left.title === 'VESIT AI&DS Department') navigate('/vesit-ai-fault-detection');
+                  }}
+                >
+                  <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: 8, color: 'var(--color-primary)', letterSpacing: '0.03em' }}>{item.left.title}</div>
+                  <div style={{ color: 'var(--color-subtext)', fontSize: '1.08rem', fontWeight: 400 }}>{item.left.desc}</div>
+                </div>
+              </div>
+            )}
+
+            {/* Spacer */}
+            <div style={{ width: '12%' }} />
+
+            {/* Right entry */}
+            {(item.right.title || item.right.desc) && (
+              <div style={{ width: '44%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                <div style={{
+                  background: 'var(--color-primary)',
+                  color: 'var(--color-text)',
+                  fontWeight: 600,
+                  fontSize: '1rem',
+                  padding: '0.5rem 1.3rem',
+                  borderRadius: '1rem',
+                  marginBottom: '0.7rem',
+                  boxShadow: '0 2px 8px #C6282822',
+                  whiteSpace: 'nowrap',
+                  fontFamily: 'Poppins, sans-serif',
+                }}>
+                  {item.right.date}
+                </div>
+                <div
+                  className="card"
+                  style={{
+                    width: '100%',
+                    maxWidth: 420,
+                    borderRadius: 'var(--radius)',
+                    padding: '1.1rem 1.2rem',
+                    background: 'var(--color-card)',
+                    minHeight: 110,
+                    boxShadow: 'var(--shadow)',
+                    fontFamily: 'Poppins, sans-serif',
+                    boxSizing: 'border-box',
+                    transition: 'all 0.2s',
+                    cursor: item.right.title === 'Mazagon Dock Shipbuilders Limited' ? 'pointer' : 'default',
+                  }}
+                  onClick={() => {
+                    if (item.right.title === 'Mazagon Dock Shipbuilders Limited') navigate('/mazagon-dock');
+                  }}
+                >
+                  <div style={{ fontWeight: 700, fontSize: '1.25rem', marginBottom: 8, color: 'var(--color-primary)', letterSpacing: '0.03em' }}>{item.right.title}</div>
+                  <div style={{ color: 'var(--color-subtext)', fontSize: '1.08rem', fontWeight: 400 }}>{item.right.desc}</div>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+
       </div>
     </div>
   );
